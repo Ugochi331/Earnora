@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d1117">
+  <title>Earnora</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+
+<body>
+
+  <main class="app">
+
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">WELCOME BACK</p>
+        <h1>Earnora</h1>
+      </div>
+
+      <div class="avatar" id="avatar">E</div>
+    </header>
+
+
+    <!-- HOME -->
+
+    <section id="home" class="screen active">
+
+      <div class="balance-card">
+
+        <div class="balance-label">
+          YOUR BALANCE
+        </div>
+
+        <div class="balance" id="balance">
+          12,450
+        </div>
+
+        <div class="points">
+          points
+        </div>
+
+        <button class="primary" id="checkinBtn">
+          🎁 Daily Check-in
+          <span>+100</span>
+        </button>
+
+        <p class="small" id="checkinStatus">
+          Claim your daily reward.
+        </p>
+
+      </div>
+
+
+      <div class="section-head">
+
+        <h2>Quick Tasks</h2>
+
+        <button class="link-btn" data-screen="tasks">
+          See all
+        </button>
+
+      </div>
+
+
+      <div class="task-list">
+
+        <article class="task-card">
+
+          <div class="task-icon">
+            ✈️
+          </div>
+
+          <div class="task-copy">
+
+            <strong>
+              Join our Telegram channel
+            </strong>
+
+            <span>
+              +500 points
+            </span>
+
+          </div>
+
+          <button class="task-btn" data-reward="500">
+            Claim
+          </button>
+
+        </article>
+
+
+        <article class="task-card">
+
+          <div class="task-icon">
+            🌐
+          </div>
+
+          <div class="task-copy">
+
+            <strong>
+              Visit our website
+            </strong>
+
+            <span>
+              +250 points
+            </span>
+
+          </div>
+
+          <button class="task-btn" data-reward="250">
+            Claim
+          </button>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- TASKS -->
+
+    <section id="tasks" class="screen">
+
+      <div class="page-title">
+
+        <p class="eyebrow">
+          EARN MORE
+        </p>
+
+        <h2>
+          Tasks
+        </h2>
+
+        <p>
+          Complete simple tasks to grow your balance.
+        </p>
+
+      </div>
+
+
+      <div class="task-list">
+
+        <article class="task-card">
+
+          <div class="task-icon">✈️</div>
+
+          <div class="task-copy">
+
+            <strong>
+              Join our Telegram channel
+            </strong>
+
+            <span>
+              +500 points
+            </span>
+
+          </div>
+
+          <button class="task-btn" data-reward="500">
+            Claim
+          </button>
+
+        </article>
+
+
+        <article class="task-card">
+
+          <div class="task-icon">🌐</div>
+
+          <div class="task-copy">
+
+            <strong>
+              Visit our website
+            </strong>
+
+            <span>
+              +250 points
+            </span>
+
+          </div>
+
+          <button class="task-btn" data-reward="250">
+            Claim
+          </button>
+
+        </article>
+
+
+        <article class="task-card">
+
+          <div class="task-icon">🎬</div>
+
+          <div class="task-copy">
+
+            <strong>
+              Watch a short video
+            </strong>
+
+            <span>
+              +300 points
+            </span>
+
+          </div>
+
+          <button class="task-btn" data-reward="300">
+            Claim
+          </button>
+
+        </article>
+
+
+        <article class="task-card">
+
+          <div class="task-icon">⭐</div>
+
+          <div class="task-copy">
+
+            <strong>
+              Follow our updates
+            </strong>
+
+            <span>
+              +400 points
+            </span>
+
+          </div>
+
+          <button class="task-btn" data-reward="400">
+            Claim
+          </button>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- REFERRALS -->
+
+    <section id="referrals" class="screen">
+
+      <div class="page-title">
+
+        <p class="eyebrow">
+          GROW TOGETHER
+        </p>
+
+        <h2>
+          Referrals
+        </h2>
+
+        <p>
+          Invite friends and earn bonus points.
+        </p>
+
+      </div>
+
+
+      <div class="ref-card">
+
+        <div class="ref-stat">
+
+          <strong id="refCount">
+            0
+          </strong>
+
+          <span>
+            friends invited
+          </span>
+
+        </div>
+
+
+        <div class="ref-stat">
+
+          <strong id="refEarned">
+            0
+          </strong>
+
+          <span>
+            points earned
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="invite-box">
+
+        <p>
+          Your referral link
+        </p>
+
+        <div class="ref-link" id="refLink">
+          https://t.me/EarnoraBot?start=demo
+        </div>
+
+        <button class="primary" id="copyBtn">
+          Copy referral link
+        </button>
+
+      </div>
+
+
+      <button class="secondary" id="shareBtn">
+        📤 Share with friends
+      </button>
+
+    </section>
+
+
+
+    <!-- REWARDS -->
+
+    <section id="rewards" class="screen">
+
+      <div class="page-title">
+
+        <p class="eyebrow">
+          REDEEM
+        </p>
+
+        <h2>
+          Rewards
+        </h2>
+
+        <p>
+          Use your points for available rewards.
+        </p>
+
+      </div>
+
+
+      <div class="reward-grid">
+
+        <article class="reward-card">
+
+          <div>💵</div>
+
+          <strong>
+            Cash Reward
+          </strong>
+
+          <span>
+            10,000 pts
+          </span>
+
+          <button class="reward-btn" data-cost="10000">
+            Redeem
+          </button>
+
+        </article>
+
+
+        <article class="reward-card">
+
+          <div>🎁</div>
+
+          <strong>
+            Bonus Pack
+          </strong>
+
+          <span>
+            5,000 pts
+          </span>
+
+          <button class="reward-btn" data-cost="5000">
+            Redeem
+          </button>
+
+        </article>
+
+
+        <article class="reward-card">
+
+          <div>🏆</div>
+
+          <strong>
+            VIP Bonus
+          </strong>
+
+          <span>
+            25,000 pts
+          </span>
+
+          <button class="reward-btn" data-cost="25000">
+            Redeem
+          </button>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- PROFILE -->
+
+    <section id="profile" class="screen">
+
+      <div class="profile-card">
+
+        <div class="big-avatar" id="profileAvatar">
+          E
+        </div>
+
+        <h2 id="profileName">
+          Earnora User
+        </h2>
+
+        <p id="profileUsername">
+          @username
+        </p>
+
+      </div>
+
+
+      <div class="profile-list">
+
+        <div>
+          <span>Total points</span>
+          <strong id="profileBalance">
+            12,450
+          </strong>
+        </div>
+
+        <div>
+          <span>Tasks completed</span>
+          <strong id="tasksDone">
+            0
+          </strong>
+        </div>
+
+        <div>
+          <span>Referrals</span>
+          <strong id="profileRefs">
+            0
+          </strong>
+        </div>
+
+      </div>
+
+
+      <button class="secondary" id="withdrawBtn">
+        💸 Withdraw
+      </button>
+
+    </section>
+
+
+
+    <!-- BOTTOM NAVIGATION -->
+
+    <nav class="bottom-nav">
+
+      <button class="nav-item active" data-screen="home">
+
+        <span>⌂</span>
+        <small>Home</small>
+
+      </button>
+
+
+      <button class="nav-item" data-screen="tasks">
+
+        <span>✓</span>
+        <small>Tasks</small>
+
+      </button>
+
+
+      <button class="nav-item" data-screen="referrals">
+
+        <span>♧</span>
+        <small>Referrals</small>
+
+      </button>
+
+
+      <button class="nav-item" data-screen="rewards">
+
+        <span>🎁</span>
+        <small>Rewards</small>
+
+      </button>
+
+
+      <button class="nav-item" data-screen="profile">
+
+        <span>♙</span>
+        <small>Profile</small>
+
+      </button>
+
+    </nav>
+
+  </main>
+
+
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+
+</body>
+  </html>
