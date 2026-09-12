@@ -12,7 +12,7 @@ if (tg) {
 
 const state = JSON.parse(
   localStorage.getItem("earnora_demo") ||
-  '{"balance":12450,"tasksDone":0,"referrals":0,"refEarned":0,"checkedIn":false,"claimed":[]}'
+  '{"balance":0,"tasksDone":0,"referrals":0,"refEarned":0,"checkedIn":false,"claimed":[]}'
 );
 
 
@@ -232,7 +232,7 @@ $("#checkinBtn").addEventListener(
     }
 
 
-    state.balance += 100;
+    state.balance += 50;
 
     state.checkedIn = true;
 
@@ -240,7 +240,7 @@ $("#checkinBtn").addEventListener(
 
 
     showToast(
-      "+100 points added!"
+      "+50 points added!"
     );
 
   }
