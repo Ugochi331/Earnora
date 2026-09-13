@@ -45,13 +45,7 @@ const TASKS = {
     verification: "video_completion"
   },
 
-  updates: {
-    id: "task_updates",
-    name: "Follow our updates",
-    reward: 300,
-    type: "social_follow",
-    verification: "backend"
-  }
+
 };
 
 
