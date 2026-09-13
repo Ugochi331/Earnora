@@ -921,17 +921,6 @@ $("profileEarnBtn")?.addEventListener(
   () => openScreen("tasks")
 );
 
-/* =========================
-   LANDING PAGE
-========================= */
-
-$("getStartedBtn")?.addEventListener(
-  "click",
-  () => {
-    $("landing")?.remove();
-    openScreen("home");
-  }
-);
 
 /* =========================
    RENDER EVERYTHING
@@ -958,3 +947,22 @@ function renderAll() {
 ========================= */
 
 renderAll();
+
+/* ==================== LANDING PAGE ==================== */
+
+const landingPage = document.getElementById("landingPage");
+const startEarningBtn = document.getElementById("startEarningBtn");
+const landingLogin = document.getElementById("landingLogin");
+
+function enterXevani() {
+  if (landingPage) {
+    landingPage.style.display = "none";
+  }
+
+  if (typeof openScreen === "function") {
+    openScreen("home");
+  }
+}
+
+startEarningBtn?.addEventListener("click", enterXevani);
+landingLogin?.addEventListener("click", enterXevani);
