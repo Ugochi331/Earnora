@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0d1117">
-  <title>Earnora</title>
+
+  <title>Xevani</title>
 
   <link rel="stylesheet" href="style.css">
 
@@ -15,64 +16,243 @@
 
   <main class="app">
 
+    <!-- TOP BAR -->
     <header class="topbar">
-      <div>
-        <p class="eyebrow">WELCOME BACK</p>
-        <h1>Earnora</h1>
+
+      <div class="welcome">
+        <p class="eyebrow">WELCOME</p>
+        <h1 id="welcomeName">USER</h1>
       </div>
 
-      <div class="avatar" id="avatar">E</div>
+      <button
+        class="avatar avatar-button"
+        id="avatar"
+        data-screen="profile"
+        aria-label="Open profile">
+        X
+      </button>
+
     </header>
 
 
-    <!-- HOME -->
+    <!-- ==================== HOME ==================== -->
 
     <section id="home" class="screen active">
 
       <div class="balance-card">
 
-        <div class="balance-label">
-          YOUR BALANCE
+        <div class="balance-top">
+
+          <div>
+            <p class="card-label">TOTAL EARNINGS</p>
+
+            <div class="balance" id="balance">
+              0
+            </div>
+
+            <div class="points">
+              points
+            </div>
+          </div>
+
+          <div class="balance-mark">
+            X
+          </div>
+
         </div>
 
-        <div class="balance" id="balance">
-          0
+
+        <div class="balance-actions">
+
+          <button
+            class="action-button action-primary"
+            data-screen="tasks">
+
+            <span class="action-icon">＋</span>
+            <span>Earn</span>
+
+          </button>
+
+
+          <button
+            class="action-button"
+            id="withdrawHomeBtn">
+
+            <span class="action-icon">↗</span>
+            <span>Withdraw</span>
+
+          </button>
+
         </div>
-
-        <div class="points">
-          points
-        </div>
-
-        <button class="primary" id="checkinBtn">
-          🎁 Daily Check-in
-          <span>+50</span>
-        </button>
-
-        <p class="small" id="checkinStatus">
-          Claim your daily reward.
-        </p>
 
       </div>
 
+
+      <!-- STATS -->
+
+      <div class="stats-grid">
+
+        <article class="stat-card">
+
+          <span class="stat-icon">✓</span>
+
+          <div>
+            <strong id="tasksDone">0</strong>
+            <small>Tasks done</small>
+          </div>
+
+        </article>
+
+
+        <article class="stat-card">
+
+          <span class="stat-icon">🔥</span>
+
+          <div>
+            <strong id="streakCount">0</strong>
+            <small>Day streak</small>
+          </div>
+
+        </article>
+
+
+        <article class="stat-card">
+
+          <span class="stat-icon">♧</span>
+
+          <div>
+            <strong id="refCountHome">0</strong>
+            <small>Referrals</small>
+          </div>
+
+        </article>
+
+      </div>
+
+
+      <!-- DAILY CHECK-IN -->
 
       <div class="section-head">
 
-        <h2>Quick Tasks</h2>
+        <div>
+          <p class="section-kicker">
+            DAILY REWARD
+          </p>
 
-        <button class="link-btn" data-screen="tasks">
-          See all
+          <h2>
+            Check in
+          </h2>
+        </div>
+
+        <span class="reward-pill">
+          +50
+        </span>
+
+      </div>
+
+
+      <div class="checkin-card">
+
+        <div class="checkin-icon">
+          🎁
+        </div>
+
+
+        <div class="checkin-copy">
+
+          <strong>
+            Daily check-in
+          </strong>
+
+          <span id="checkinStatus">
+            Claim your daily reward.
+          </span>
+
+        </div>
+
+
+        <button
+          class="claim-button"
+          id="checkinBtn">
+
+          Claim
+
         </button>
 
       </div>
 
 
-      <div class="task-list">
+      <!-- WATCH ADS -->
+
+      <div class="ad-card">
+
+        <div class="ad-icon">
+          ▶
+        </div>
+
+
+        <div class="ad-copy">
+
+          <p class="section-kicker">
+            WATCH & EARN
+          </p>
+
+          <strong>
+            Watch an ad
+          </strong>
+
+          <span>
+            Earn points from sponsored ads.
+          </span>
+
+        </div>
+
+
+        <button
+          class="outline-button"
+          id="watchAdBtn">
+
+          Watch
+
+        </button>
+
+      </div>
+
+
+      <!-- FEATURED TASKS -->
+
+      <div class="section-head">
+
+        <div>
+          <p class="section-kicker">
+            FEATURED
+          </p>
+
+          <h2>
+            Quick tasks
+          </h2>
+        </div>
+
+
+        <button
+          class="link-btn"
+          data-screen="tasks">
+
+          See all
+
+        </button>
+
+      </div>
+
+
+      <div class="task-list compact">
 
         <article class="task-card">
 
-          <div class="task-icon">
-            ✈️
+          <div class="task-icon telegram">
+            ✈
           </div>
+
 
           <div class="task-copy">
 
@@ -86,8 +266,14 @@
 
           </div>
 
-          <button class="task-btn" data-reward="500">
-            Claim
+
+          <button
+            class="task-btn"
+            data-task="telegram"
+            data-reward="500">
+
+            Start
+
           </button>
 
         </article>
@@ -95,9 +281,10 @@
 
         <article class="task-card">
 
-          <div class="task-icon">
-            🌐
+          <div class="task-icon website">
+            ◎
           </div>
+
 
           <div class="task-copy">
 
@@ -111,8 +298,14 @@
 
           </div>
 
-          <button class="task-btn" data-reward="250">
-            Claim
+
+          <button
+            class="task-btn"
+            data-task="website"
+            data-reward="250">
+
+            Start
+
           </button>
 
         </article>
@@ -122,8 +315,7 @@
     </section>
 
 
-
-    <!-- TASKS -->
+    <!-- ==================== EARN ==================== -->
 
     <section id="tasks" class="screen">
 
@@ -134,21 +326,85 @@
         </p>
 
         <h2>
-          Tasks
+          Rewards Center
         </h2>
 
         <p>
-          Complete simple tasks to grow your balance.
+          Complete simple tasks and sponsored activities to grow your balance.
         </p>
+
+      </div>
+
+
+      <div class="earn-hero">
+
+        <div>
+
+          <p class="section-kicker">
+            TODAY'S OPPORTUNITIES
+          </p>
+
+          <strong>
+            More ways to earn
+          </strong>
+
+          <span>
+            New tasks can be added by Xevani advertisers.
+          </span>
+
+        </div>
+
+
+        <div class="earn-hero-icon">
+          ✦
+        </div>
+
+      </div>
+
+
+      <!-- FILTERS -->
+
+      <div class="filter-row">
+
+        <button class="filter active">
+          All
+        </button>
+
+        <button class="filter">
+          Social
+        </button>
+
+        <button class="filter">
+          Ads
+        </button>
+
+        <button class="filter">
+          Partner
+        </button>
+
+      </div>
+
+
+      <div class="section-head tight">
+
+        <h2>
+          Tasks
+        </h2>
+
+        <span class="muted-count">
+          Available now
+        </span>
 
       </div>
 
 
       <div class="task-list">
 
-        <article class="task-card">
+        <article class="task-card task-large">
 
-          <div class="task-icon">✈️</div>
+          <div class="task-icon telegram">
+            ✈
+          </div>
 
           <div class="task-copy">
 
@@ -157,21 +413,28 @@
             </strong>
 
             <span>
-              +500 points
+              Social • +500 points
             </span>
 
           </div>
 
-          <button class="task-btn" data-reward="500">
-            Claim
+          <button
+            class="task-btn"
+            data-task="telegram"
+            data-reward="500">
+
+            Start
+
           </button>
 
         </article>
 
 
-        <article class="task-card">
+        <article class="task-card task-large">
 
-          <div class="task-icon">🌐</div>
+          <div class="task-icon website">
+            ◎
+          </div>
 
           <div class="task-copy">
 
@@ -180,21 +443,28 @@
             </strong>
 
             <span>
-              +250 points
+              Partner • +250 points
             </span>
 
           </div>
 
-          <button class="task-btn" data-reward="250">
-            Claim
+          <button
+            class="task-btn"
+            data-task="website"
+            data-reward="250">
+
+            Start
+
           </button>
 
         </article>
 
 
-        <article class="task-card">
+        <article class="task-card task-large">
 
-          <div class="task-icon">🎬</div>
+          <div class="task-icon video">
+            ▶
+          </div>
 
           <div class="task-copy">
 
@@ -203,21 +473,28 @@
             </strong>
 
             <span>
-              +200 points
+              Ads • +300 points
             </span>
 
           </div>
 
-          <button class="task-btn" data-reward="300">
-            Claim
+          <button
+            class="task-btn"
+            data-task="video"
+            data-reward="300">
+
+            Start
+
           </button>
 
         </article>
 
 
-        <article class="task-card">
+        <article class="task-card task-large">
 
-          <div class="task-icon">⭐</div>
+          <div class="task-icon social">
+            ★
+          </div>
 
           <div class="task-copy">
 
@@ -226,24 +503,37 @@
             </strong>
 
             <span>
-              +300 points
+              Social • +400 points
             </span>
 
           </div>
 
-          <button class="task-btn" data-reward="400">
-            Claim
+          <button
+            class="task-btn"
+            data-task="updates"
+            data-reward="400">
+
+            Start
+
           </button>
 
         </article>
 
       </div>
 
+
+      <div class="notice">
+
+        Sponsored tasks shown here are part of the Xevani earning system.
+        Real advertiser-funded tasks will be connected when the backend and
+        ad marketplace are added.
+
+      </div>
+
     </section>
 
 
-
-    <!-- REFERRALS -->
+    <!-- ==================== REFERRALS ==================== -->
 
     <section id="referrals" class="screen">
 
@@ -254,40 +544,70 @@
         </p>
 
         <h2>
-          Referrals
+          Refer & Earn
         </h2>
 
         <p>
-          Invite friends and earn bonus points.
+          Invite friends and earn 500 points for each qualifying referral.
         </p>
 
       </div>
 
 
-      <div class="ref-card">
+      <div class="ref-hero">
 
-        <div class="ref-stat">
+        <div class="ref-hero-top">
 
-          <strong id="refCount">
-            0
-          </strong>
+          <div>
 
-          <span>
-            friends invited
-          </span>
+            <p class="card-label">
+              REFERRAL EARNINGS
+            </p>
+
+            <strong id="refEarned">
+              0
+            </strong>
+
+            <span>
+              points earned
+            </span>
+
+          </div>
+
+
+          <div class="ref-people">
+            ♧
+          </div>
 
         </div>
 
 
-        <div class="ref-stat">
+        <div class="ref-mini-grid">
 
-          <strong id="refEarned">
-            0
-          </strong>
+          <div>
 
-          <span>
-            points earned
-          </span>
+            <strong id="refCount">
+              0
+            </strong>
+
+            <span>
+              Friends invited
+            </span>
+
+          </div>
+
+
+          <div>
+
+            <strong>
+              500
+            </strong>
+
+            <span>
+              Points per referral
+            </span>
+
+          </div>
 
         </div>
 
@@ -296,30 +616,81 @@
 
       <div class="invite-box">
 
-        <p>
-          Your referral link
-        </p>
+        <div class="section-head tight">
 
-        <div class="ref-link" id="refLink">
-          https://t.me/EarnoraBot?start=demo
+          <h2>
+            Your invite link
+          </h2>
+
+          <span class="reward-pill">
+            +500
+          </span>
+
         </div>
 
-        <button class="primary" id="copyBtn">
-          Copy referral link
-        </button>
+
+        <div
+          class="ref-link"
+          id="refLink">
+
+          Telegram referral link
+
+        </div>
+
+
+        <div class="invite-actions">
+
+          <button
+            class="primary"
+            id="copyBtn">
+
+            Copy link
+
+          </button>
+
+
+          <button
+            class="secondary share"
+            id="shareBtn">
+
+            Share
+
+          </button>
+
+        </div>
 
       </div>
 
 
-      <button class="secondary" id="shareBtn">
-        📤 Share with friends
-      </button>
+      <div class="leader-card">
+
+        <div>
+
+          <p class="section-kicker">
+            REFERRAL RANK
+          </p>
+
+          <strong>
+            Invite more friends
+          </strong>
+
+          <span>
+            Your leaderboard will appear here when referrals are connected to the backend.
+          </span>
+
+        </div>
+
+
+        <div class="leader-icon">
+          🏆
+        </div>
+
+      </div>
 
     </section>
 
 
-
-    <!-- REWARDS -->
+    <!-- ==================== REWARDS ==================== -->
 
     <section id="rewards" class="screen">
 
@@ -334,8 +705,51 @@
         </h2>
 
         <p>
-          Use your points for available rewards.
+          Use your points for available rewards and withdrawals.
         </p>
+
+      </div>
+
+
+      <div class="withdraw-card">
+
+        <div>
+
+          <p class="card-label">
+            AVAILABLE BALANCE
+          </p>
+
+          <strong id="rewardBalance">
+            0
+          </strong>
+
+          <span>
+            points
+          </span>
+
+        </div>
+
+
+        <button
+          class="primary small-button"
+          id="withdrawBtn">
+
+          Withdraw
+
+        </button>
+
+      </div>
+
+
+      <div class="section-head tight">
+
+        <h2>
+          Available rewards
+        </h2>
+
+        <span class="muted-count">
+          Min. 10,000 pts
+        </span>
 
       </div>
 
@@ -344,18 +758,28 @@
 
         <article class="reward-card">
 
-          <div>💵</div>
+          <div class="reward-icon">
+            💵
+          </div>
 
-          <strong>
-            Cash Reward
-          </strong>
+          <div class="reward-info">
 
-          <span>
-            10,000 pts
-          </span>
+            <strong>
+              Cash Reward
+            </strong>
 
-          <button class="reward-btn" data-cost="10000">
+            <span>
+              10,000 points
+            </span>
+
+          </div>
+
+          <button
+            class="reward-btn"
+            data-cost="10000">
+
             Redeem
+
           </button>
 
         </article>
@@ -363,18 +787,28 @@
 
         <article class="reward-card">
 
-          <div>🎁</div>
+          <div class="reward-icon">
+            🎁
+          </div>
 
-          <strong>
-            Bonus Pack
-          </strong>
+          <div class="reward-info">
 
-          <span>
-            5,000 pts
-          </span>
+            <strong>
+              Bonus Pack
+            </strong>
 
-          <button class="reward-btn" data-cost="5000">
+            <span>
+              5,000 points
+            </span>
+
+          </div>
+
+          <button
+            class="reward-btn"
+            data-cost="5000">
+
             Redeem
+
           </button>
 
         </article>
@@ -382,45 +816,75 @@
 
         <article class="reward-card">
 
-          <div>🏆</div>
+          <div class="reward-icon">
+            🏆
+          </div>
 
-          <strong>
-            VIP Bonus
-          </strong>
+          <div class="reward-info">
 
-          <span>
-            25,000 pts
-          </span>
+            <strong>
+              VIP Bonus
+            </strong>
 
-          <button class="reward-btn" data-cost="25000">
+            <span>
+              25,000 points
+            </span>
+
+          </div>
+
+          <button
+            class="reward-btn"
+            data-cost="25000">
+
             Redeem
+
           </button>
 
         </article>
 
       </div>
 
+
+      <div class="notice">
+
+        Withdrawal processing will be connected to the Xevani backend.
+        The current interface is still a front-end demo.
+
+      </div>
+
     </section>
 
 
-
-    <!-- PROFILE -->
+    <!-- ==================== PROFILE ==================== -->
 
     <section id="profile" class="screen">
 
-      <div class="profile-card">
+      <div class="profile-header-card">
 
-        <div class="big-avatar" id="profileAvatar">
-          E
+        <div
+          class="big-avatar"
+          id="profileAvatar">
+
+          X
+
         </div>
 
-        <h2 id="profileName">
-          Earnora User
-        </h2>
 
-        <p id="profileUsername">
-          @username
-        </p>
+        <div>
+
+          <p class="section-kicker">
+            XEVANI ACCOUNT
+          </p>
+
+          <h2 id="profileName">
+            Xevani User
+          </h2>
+
+          <p id="profileUsername">
+            Telegram user
+          </p>
+
+        </div>
 
       </div>
 
@@ -428,77 +892,159 @@
       <div class="profile-list">
 
         <div>
-          <span>Total points</span>
+
+          <span>
+            Total points
+          </span>
+
           <strong id="profileBalance">
             0
           </strong>
+
         </div>
 
+
         <div>
-          <span>Tasks completed</span>
-          <strong id="tasksDone">
+
+          <span>
+            Tasks completed
+          </span>
+
+          <strong id="profileTasks">
             0
           </strong>
+
         </div>
 
+
         <div>
-          <span>Referrals</span>
+
+          <span>
+            Referrals
+          </span>
+
           <strong id="profileRefs">
             0
           </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            Daily streak
+          </span>
+
+          <strong id="profileStreak">
+            0 days
+          </strong>
+
         </div>
 
       </div>
 
 
-      <button class="secondary" id="withdrawBtn">
-        💸 Withdraw
-      </button>
+      <div class="profile-actions">
+
+        <button
+          class="secondary"
+          id="profileWithdrawBtn">
+
+          💸 Withdraw
+
+        </button>
+
+
+        <button
+          class="secondary"
+          id="profileEarnBtn"
+          data-screen="tasks">
+
+          ✦ Earn more
+
+        </button>
+
+      </div>
 
     </section>
 
 
-
-    <!-- BOTTOM NAVIGATION -->
+    <!-- ==================== BOTTOM NAV ==================== -->
 
     <nav class="bottom-nav">
 
-      <button class="nav-item active" data-screen="home">
+      <button
+        class="nav-item active"
+        data-screen="home">
 
-        <span>⌂</span>
-        <small>Home</small>
+        <span>
+          ⌂
+        </span>
 
-      </button>
-
-
-      <button class="nav-item" data-screen="tasks">
-
-        <span>✓</span>
-        <small>Tasks</small>
-
-      </button>
-
-
-      <button class="nav-item" data-screen="referrals">
-
-        <span>♧</span>
-        <small>Referrals</small>
+        <small>
+          Home
+        </small>
 
       </button>
 
 
-      <button class="nav-item" data-screen="rewards">
+      <button
+        class="nav-item"
+        data-screen="tasks">
 
-        <span>🎁</span>
-        <small>Rewards</small>
+        <span>
+          ✦
+        </span>
+
+        <small>
+          Earn
+        </small>
 
       </button>
 
 
-      <button class="nav-item" data-screen="profile">
+      <button
+        class="nav-item"
+        data-screen="referrals">
 
-        <span>♙</span>
-        <small>Profile</small>
+        <span>
+          ♧
+        </span>
+
+        <small>
+          Refer
+        </small>
+
+      </button>
+
+
+      <button
+        class="nav-item"
+        data-screen="rewards">
+
+        <span>
+          🎁
+        </span>
+
+        <small>
+          Rewards
+        </small>
+
+      </button>
+
+
+      <button
+        class="nav-item"
+        data-screen="profile">
+
+        <span>
+          ♙
+        </span>
+
+        <small>
+          Profile
+        </small>
 
       </button>
 
@@ -507,9 +1053,15 @@
   </main>
 
 
-  <div id="toast" class="toast"></div>
+  <!-- TOAST -->
+
+  <div
+    id="toast"
+    class="toast">
+  </div>
+
 
   <script src="app.js"></script>
 
 </body>
-  </html>
+</html>
