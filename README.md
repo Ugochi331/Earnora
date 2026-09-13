@@ -1,2 +1,2 @@
-# Earnora
-Earnora Telegram Mini App
+# Xevani
+Xevani Telegram Mini App
