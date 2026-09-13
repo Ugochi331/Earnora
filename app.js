@@ -947,3 +947,109 @@ function renderAll() {
 ========================= */
 
 renderAll();
+
+/* ==================== LANDING PAGE ==================== */
+
+.landing-screen {
+  min-height: 100vh;
+  padding: 32px 22px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--bg, #0d1117);
+}
+
+.landing-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.landing-logo-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  background: #ffffff;
+  color: #0d1117;
+}
+
+.landing-hero {
+  padding: 45px 0 30px;
+}
+
+.landing-kicker {
+  margin: 0 0 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  opacity: .65;
+}
+
+.landing-hero h1 {
+  margin: 0;
+  font-size: clamp(38px, 10vw, 58px);
+  line-height: 1.02;
+  letter-spacing: -2px;
+}
+
+.landing-description {
+  max-width: 390px;
+  margin: 22px 0 28px;
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: .7;
+}
+
+.landing-button {
+  width: 100%;
+  border: 0;
+  border-radius: 16px;
+  padding: 17px 20px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  background: #ffffff;
+  color: #0d1117;
+}
+
+.landing-steps {
+  display: grid;
+  gap: 12px;
+}
+
+.landing-step {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.05);
+}
+
+.landing-step > span {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.1);
+  font-weight: 800;
+}
+
+.landing-step strong {
+  display: block;
+  font-size: 14px;
+}
+
+.landing-step small {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  opacity: .6;
+    }
