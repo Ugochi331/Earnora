@@ -1,23 +1,49 @@
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(200).send("Xevani bot is running");
-  }
-
   const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = req.body?.message?.chat?.id;
 
-  if (token && chatId) {
-    await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: "Welcome to Xevani! 🎉"
-      })
+  if (!token) {
+    return res.status(500).json({
+      error: "TELEGRAM_BOT_TOKEN is missing"
     });
   }
 
-  return res.status(200).send("OK");
+  // Browser test
+  if (req.method === "GET") {
+    const response = await fetch(
+      `https://api.telegram.org/bot${token}/getMe`
+    );
+
+    const result = await response.json();
+
+    return res.status(200).json(result);
+  }
+
+  // Telegram webhook
+  if (req.method === "POST") {
+    const chatId = req.body?.message?.chat?.id;
+
+    if (chatId) {
+      const response = await fetch(
+        `https://api.telegram.org/bot${token}/sendMessage`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: "Welcome to Xevani! 🎉"
+          })
+        }
+      );
+
+      const result = await response.json();
+
+      console.log("Telegram result:", result);
+    }
+
+    return res.status(200).json({ ok: true });
+  }
+
+  return res.status(200).json({ ok: true });
 }
