@@ -1,32 +1,15 @@
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(200).json({
-      message: "Xevani bot backend is running."
-    });
-  }
+  console.log("METHOD:", req.method);
+  console.log("BODY:", JSON.stringify(req.body));
 
-  try {
-    const update = req.body;
-    const message = update?.message;
-    const chatId = message?.chat?.id;
-    const text = message?.text;
+  if (req.method === "POST") {
+    const token = process.env.TELEGRAM_BOT_TOKEN;
+    const chatId = req.body?.message?.chat?.id;
 
-    console.log("Telegram update received:", update);
+    console.log("CHAT ID:", chatId);
+    console.log("TOKEN EXISTS:", !!token);
 
-    if (!chatId) {
-      return res.status(200).json({ ok: true });
-    }
-
-    if (text === "/start") {
-      const token = process.env.TELEGRAM_BOT_TOKEN;
-
-      if (!token) {
-        console.error("TELEGRAM_BOT_TOKEN is missing");
-        return res.status(500).json({
-          error: "Bot token is missing"
-        });
-      }
-
+    if (token && chatId) {
       const response = await fetch(
         `https://api.telegram.org/bot${token}/sendMessage`,
         {
@@ -41,23 +24,10 @@ export default async function handler(req, res) {
         }
       );
 
-      const result = await response.json();
-
-      console.log("Telegram sendMessage result:", result);
-
-      return res.status(200).json({
-        ok: true,
-        telegram: result
-      });
+      console.log("TELEGRAM STATUS:", response.status);
+      console.log("TELEGRAM RESPONSE:", await response.text());
     }
-
-    return res.status(200).json({ ok: true });
-
-  } catch (error) {
-    console.error("Bot error:", error);
-
-    return res.status(500).json({
-      error: error.message
-    });
   }
+
+  return res.status(200).send("OK");
 }
