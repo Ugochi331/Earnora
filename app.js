@@ -9,7 +9,7 @@ const APP_NAME = "Xevani";
 
 const DAILY_REWARD = 100;
 const REFERRAL_REWARD = 500;
-const MIN_WITHDRAWAL = 50000;
+const MIN_WITHDRAWAL = 30000;
 
 const STORAGE_KEY = "xevani_demo";
 
