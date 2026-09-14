@@ -1010,6 +1010,14 @@
     class="toast">
   </div>
 
+    const tg = window.Telegram.WebApp;
+
+tg.ready();
+tg.expand();
+
+const user = tg.initDataUnsafe?.user;
+
+console.log("Xevani user:", user);
 
   <script src="app.js"></script>
 
