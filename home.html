@@ -1010,22 +1010,8 @@
     class="toast">
   </div>
 
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script src="app.js"></script>
-
-<script>
-const tg = window.Telegram.WebApp;
-
-tg.ready();
-tg.expand();
-
-const user = tg.initDataUnsafe?.user;
-
-console.log("Xevani user:", user);
-
-if (user) {
-  alert("Welcome, " + (user.first_name || "Xevani user") + "!");
-}
-</script>
     
 </body>
 </html>
