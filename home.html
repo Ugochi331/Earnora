@@ -1018,6 +1018,9 @@ tg.expand();
 const user = tg.initDataUnsafe?.user;
 
 console.log("Xevani user:", user);
+    if (user) {
+  alert("Welcome, " + (user.first_name || "Xevani user") + "!");
+}
 
   <script src="app.js"></script>
 
