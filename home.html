@@ -1010,9 +1010,10 @@
     class="toast">
   </div>
 
+<script src="app.js"></script>
 
-  <script src="app.js">
-      const tg = window.Telegram.WebApp;
+<script>
+const tg = window.Telegram.WebApp;
 
 tg.ready();
 tg.expand();
@@ -1024,8 +1025,7 @@ console.log("Xevani user:", user);
 if (user) {
   alert("Welcome, " + (user.first_name || "Xevani user") + "!");
 }
-      
-  </script>
+</script>
     
 </body>
 </html>
