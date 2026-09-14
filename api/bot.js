@@ -33,9 +33,21 @@ export default async function handler(req, res) {
             "Content-Type": "application/json"
           },
           body: JSON.stringify({
-            chat_id: chatId,
-            text: "Welcome to Xevani! 🎉"
-          })
+  chat_id: chatId,
+  text: "Welcome to Xevani! 🎉",
+  reply_markup: {
+    inline_keyboard: [
+      [
+        {
+          text: "🚀 Open Xevani",
+          web_app: {
+            url: "https://xevani.vercel.app/home.html"
+          }
+        }
+      ]
+    ]
+  }
+})
         }
       );
 
