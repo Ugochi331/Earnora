@@ -41,7 +41,7 @@ export default async function handler(req, res) {
         {
           text: "🚀 Open Xevani",
           web_app: {
-            url: "https://xevani.vercel.app/home.html"
+            url: "https://xevani.vercel.app/index.html"
           }
         }
       ]
