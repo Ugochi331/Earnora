@@ -7,7 +7,6 @@ export default async function handler(req, res) {
     });
   }
 
-  // Browser test
   if (req.method === "GET") {
     const response = await fetch(
       `https://api.telegram.org/bot${token}/getMe`
@@ -18,9 +17,12 @@ export default async function handler(req, res) {
     return res.status(200).json(result);
   }
 
-  // Telegram webhook
   if (req.method === "POST") {
+    console.log("FULL REQUEST BODY:", JSON.stringify(req.body));
+
     const chatId = req.body?.message?.chat?.id;
+
+    console.log("CHAT ID:", chatId);
 
     if (chatId) {
       const response = await fetch(
